@@ -56,13 +56,12 @@ public class Entry implements Comparable<Entry> {
 		if (key.equalsIgnoreCase(o.getKey()))
 			return key.compareTo(o.getKey());
 		// If one of the keys has a leading apostrophe, remove it for comparison
-		else if (key.charAt(0) == '\'' ^ o.getKey().charAt(0) == '\'')
-			if (key.charAt(0) == '\'')
-				return key.substring(1).compareToIgnoreCase(o.getKey());
-			else if (o.getKey().charAt(0) == '\'')
-				return key.compareToIgnoreCase(o.getKey().substring(1));
-		
-		return key.compareToIgnoreCase(o.getKey());
+		else if (key.charAt(0) == '\'' && o.getKey().charAt(0) != '\'')
+			return key.substring(1).compareToIgnoreCase(o.getKey());
+		else if (o.getKey().charAt(0) == '\'' && key.charAt(0) != '\'')
+			return key.compareToIgnoreCase(o.getKey().substring(1));
+		else
+			return key.compareToIgnoreCase(o.getKey());
 	}
 
 }
