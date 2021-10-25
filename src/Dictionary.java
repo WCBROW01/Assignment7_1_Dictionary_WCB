@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Incomplete dictionary implementation using an ArrayList.
@@ -87,14 +88,50 @@ public class Dictionary implements DictionaryInterface<String, String> {
 
 	@Override
 	public Iterator<String> getKeyIterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new KeyIterator();
 	}
 
 	@Override
 	public Iterator<String> getValueIterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ValueIterator();
+	}
+	
+	private class KeyIterator implements Iterator<String> {
+		
+		private int cursor = 0;
+
+		@Override
+		public boolean hasNext() {
+			return cursor < getSize();
+		}
+
+		@Override
+		public String next() {
+			if (cursor < getSize())
+				return dictionaryList.get(cursor++).getKey();
+			else
+				throw new NoSuchElementException();
+		}
+		
+	}
+	
+	private class ValueIterator implements Iterator<String> {
+		
+		private int cursor = 0;
+
+		@Override
+		public boolean hasNext() {
+			return cursor < getSize();
+		}
+
+		@Override
+		public String next() {
+			if (cursor < getSize())
+				return dictionaryList.get(cursor++).getValue();
+			else
+				throw new NoSuchElementException();
+		}
+		
 	}
 
 	@Override
