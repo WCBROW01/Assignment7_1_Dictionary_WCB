@@ -1,3 +1,3 @@
 # Assignment7_1_Dictionary_WCB
 
-Incomplete dictionary implementation using an ArrayList.
+Dictionary implementation using an ArrayList.

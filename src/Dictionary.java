@@ -3,7 +3,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * Incomplete dictionary implementation using an ArrayList.
+ * Dictionary implementation using an ArrayList.
  * Both key and value are strings.
  * @author Will Brown
  * @version 1.0
@@ -16,7 +16,6 @@ public class Dictionary implements DictionaryInterface<String, String> {
 	@Override
 	public String add(String key, String value) {
 		Entry newEntry = new Entry(key, value);
-		//String replacedEntry = null;
 		int dictIndex;
 		
 		// Loop through all entries until one is reached which is either equal to key or ahead of it

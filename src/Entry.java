@@ -1,5 +1,6 @@
 /**
  * Class representing each entry of a dictionary, with key/value pairs.
+ * Optimized for English words/definitions.
  * @author Will Brown
  * @version 1.0
  * Fall 2021
