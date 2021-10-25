@@ -95,40 +95,40 @@ public class Dictionary implements DictionaryInterface<String, String> {
 		return new ValueIterator();
 	}
 	
+	/**
+	 * Iterates through dictionary keys
+	 */
 	private class KeyIterator implements Iterator<String> {
 		
-		private int cursor = 0;
+		private Iterator<Entry> dictIterator = dictionaryList.iterator();
 
 		@Override
 		public boolean hasNext() {
-			return cursor < getSize();
+			return dictIterator.hasNext();
 		}
 
 		@Override
 		public String next() {
-			if (cursor < getSize())
-				return dictionaryList.get(cursor++).getKey();
-			else
-				throw new NoSuchElementException();
+			return dictIterator.next().getKey();
 		}
 		
 	}
 	
+	/**
+	 * Iterates through dictionary values
+	 */
 	private class ValueIterator implements Iterator<String> {
 		
-		private int cursor = 0;
+		private Iterator<Entry> dictIterator = dictionaryList.iterator();
 
 		@Override
 		public boolean hasNext() {
-			return cursor < getSize();
+			return dictIterator.hasNext();
 		}
 
 		@Override
 		public String next() {
-			if (cursor < getSize())
-				return dictionaryList.get(cursor++).getValue();
-			else
-				throw new NoSuchElementException();
+			return dictIterator.next().getValue();
 		}
 		
 	}
