@@ -57,19 +57,31 @@ public class Dictionary implements DictionaryInterface<String, String> {
 
 	@Override
 	public String remove(String key) {
-		// TODO Auto-generated method stub
+		for (int i = 0; i < getSize(); i++)
+			if (dictionaryList.get(i).getKey().equals(key)) {
+				String removedValue = dictionaryList.get(i).getValue();
+				dictionaryList.remove(i);
+				return removedValue;
+			}
+		
 		return null;
 	}
 
 	@Override
 	public String getValue(String key) {
-		// TODO Auto-generated method stub
+		for (Entry dictEntry : dictionaryList)
+			if (dictEntry.getKey().equals(key))
+				return dictEntry.getValue();
+		
 		return null;
 	}
 
 	@Override
 	public boolean contains(String key) {
-		// TODO Auto-generated method stub
+		for (Entry dictEntry : dictionaryList)
+			if (dictEntry.getKey().equals(key))
+				return true;
+				
 		return false;
 	}
 
@@ -87,8 +99,7 @@ public class Dictionary implements DictionaryInterface<String, String> {
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return getSize() == 0;
 	}
 
 	@Override
@@ -98,8 +109,7 @@ public class Dictionary implements DictionaryInterface<String, String> {
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		dictionaryList.clear();
 	}
 	
 	/**
