@@ -149,7 +149,7 @@ public class Dictionary implements DictionaryInterface<String, String> {
 	
 	/**
 	 * Sort the dictionary in alphabetical order.
-	 * This uses insertion sort internally.
+	 * This uses selection sort internally.
 	 */
 	public void sort() {
 		SortArrayList.selectionSort(dictionaryList, getSize());
